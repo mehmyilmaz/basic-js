@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+//import { NotImplementedError } from '../extensions/index.js';
 
 /**
  * Implement class DepthCalculator with method calculateDepth
@@ -12,9 +12,20 @@ import { NotImplementedError } from '../extensions/index.js';
  * depthCalc.calculateDepth([[[]]]) => 3
  *
  */
-export default class DepthCalculator {
-  calculateDepth(/* arr */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+ calculateDepth(arr, depth = 1) {
+  let res = depth;
+  arr.forEach(el => {
+    if (Array.isArray(el)) {
+      let tempDepth = this.calculateDepth(el, depth + 1);
+      if (tempDepth > res) {
+        res = tempDepth;
+      }
+    }
+  });
+  return res;
 }
+}
+
+// const depthCalc = new DepthCalculator();
+// // console.log(depthCalc.calculateDepth([1, 2, 3, [4, 5]]))  //2
+// console.log(depthCalc.calculateDepth([[[]]]))  //3
