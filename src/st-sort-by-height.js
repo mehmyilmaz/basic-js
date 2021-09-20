@@ -22,4 +22,4 @@
   return arr;
 }
 // Given an array with heights, sort them except if the value is -1. Your task is to implement function that accepts array (arr) and returns it sorted
-console.log(sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180])) //  [-1, 150, 160, 170, -1, -1, 180, 190] 
+//console.log(sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180])) //  [-1, 150, 160, 170, -1, -1, 180, 190] 
