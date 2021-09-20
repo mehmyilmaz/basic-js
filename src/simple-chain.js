@@ -1,28 +1,40 @@
-import { NotImplementedError } from '../extensions/index.js';
+//import { NotImplementedError } from '../extensions/index.js';
 
 /**
  * Implement chainMaker object according to task description
  * 
  */
 export default {
+  values: [],
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.values.length;
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+ 
+    addLink(value) {
+      this.values.push(`( ${value} )`);
+      return this;
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    removeLink(position) {
+      if (typeof position !== 'number' || position <= 0 || position > this.values.length) {
+        this.values = [];
+        throw new Error(`You can't remove incorrect link!`);
+      }
+      this.values.splice(position - 1, 1);
+      return this;
   },
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    this.values.reverse();
+    return this;
   },
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let result = this.values.join('~~')
+    this.values = [];
+    return result;
   }
 };
+
+// chainMaker.addLink(1).addLink(2).addLink(3).finishChain() // '( 1 )~~( 2 )~~( 3 )'
+
+// chainMaker.addLink(1).addLink(2).removeLink(1).addLink(3).finishChain() // '( 2 )~~( 3 )'
+
+// chainMaker.addLink(1).addLink(2).reverseChain().addLink(3).finishChain() //  '( 2 )~~( 1 )~~( 3 )'
