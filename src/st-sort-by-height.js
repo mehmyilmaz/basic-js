@@ -1,4 +1,4 @@
-//import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from '../extensions/index.js';
 
 /**
  * Given an array with heights, sort them except if the value is -1.

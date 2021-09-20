@@ -1,4 +1,4 @@
-//import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from '../extensions/index.js';
 
 /**
  * There's a list of file, since two files cannot have equal names,
